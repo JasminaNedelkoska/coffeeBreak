@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class CoffeeBreakPreference extends Model
@@ -18,11 +17,6 @@ class CoffeeBreakPreference extends Model
     protected $casts = [
         "details" => "array"
     ];
-
-    public function setRequestedDateAttribute($value)
-    {
-        $this->attributes['requested_date'] = is_null($value) ? null : Carbon::createFromFormat('d.m.Y', $value)->format('Y-m-d');
-    }
 
     public function setDetailsAttribute($value)
     {
